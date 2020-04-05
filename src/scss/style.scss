@@ -1,0 +1,69 @@
+@import './reset.scss';
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+
+    .content{
+        height: 50px;
+        width: 50px;
+        background-color: #80CBC4;
+        margin: 20px;
+
+        &.spin{
+            animation: spin 10s linear infinite;
+        }
+
+        &.scale{
+            animation: scale 2s linear infinite;
+        }
+
+        &.skew{
+            animation: skew 1s linear infinite;
+        }
+
+        &.translate{
+            animation: translate 1s linear infinite;
+        }
+    }
+
+}
+
+@keyframes spin{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes scale{
+    0%{
+        transform: scale(1,1);
+    }
+    100%{
+        transform: scale(2,2);
+    }
+}
+
+@keyframes skew{
+    0%{
+        transform: skewY(10deg);
+    }
+    100%{
+        transform: skewY(-10deg);
+    }
+}
+
+@keyframes translate{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(20px);
+    }
+}

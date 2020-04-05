@@ -1,3 +1,7 @@
+<div>
+    <img src="src/images/sample.gif" align="center">
+</div>
+
 # CSS's animation pratice
 
 A simple way to pratice css's animation property

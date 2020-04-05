@@ -4,32 +4,94 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     width: 100%;
 
-    .content{
-        height: 50px;
-        width: 50px;
-        background-color: #80CBC4;
-        margin: 20px;
+    .title{
+        width: 100%;
+        h1{
+            font-size: 48px;
+            font-family: sans-serif;
+            position: relative;
+            overflow: hidden;
+            display: block;
+            width: 40rem;
+            margin: 30px auto;
+            text-align: center;
+            line-height: 1.2;
 
-        &.spin{
-            animation: spin 10s linear infinite;
-        }
-
-        &.scale{
-            animation: scale 2s linear infinite;
-        }
-
-        &.skew{
-            animation: skew 1s linear infinite;
-        }
-
-        &.translate{
-            animation: translate 1s linear infinite;
+            &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                background: white;
+                animation: a-ltr-after 2s cubic-bezier(.77,0,.18,1) forwards;
+                transform: translateX(-101%);
+            }
+            &::before{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                background: #80CBC4;
+                animation: a-ltr-before 2s cubic-bezier(.77,0,.18,1) forwards;
+                transform: translateX(0);
+            }
+            &:nth-last-of-type(2)::before, &:nth-last-of-type(4)::after {
+                animation-delay: 1.5s;
+            }
         }
     }
+    .content-wrapper{
+        display: flex;
 
+        .content{
+            height: 50px;
+            width: 50px;
+            background-color: #80CBC4;
+            margin: 20px;
+
+            &.spin{
+                animation: spin 10s linear infinite;
+            }
+
+            &.scale{
+                animation: scale 2s linear infinite;
+            }
+
+            &.skew{
+                animation: skew 1s linear infinite;
+            }
+
+            &.translate{
+                animation: translate 1s linear infinite;
+            }
+        }
+    }
+}
+
+
+@keyframes a-ltr-after {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(101%);
+    }
+}
+@keyframes a-ltr-before {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(200%);
+    }
 }
 
 @keyframes spin{
